@@ -16,3 +16,7 @@ def entrada(mensagem: str) -> str:
     """Recebe uma entrada do usuário."""
     return input(f">>> {mensagem.capitalize()} ")
 
+
+def erro(mensagem: str) -> None:
+    """Imprime uma mensagem de erro em formato personalizado."""
+    print(f"~ {mensagem.capitalize()}")
