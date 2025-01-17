@@ -1,3 +1,6 @@
+from sys import exit
+
+
 def titulo(texto: str, tamanho: int = 50) -> None:
     """Imprime um título em formato personalizado."""
     print("-" * tamanho)
@@ -14,7 +17,10 @@ def cabecalho(texto: str, tamanho: int = 50) -> None:
 
 def entrada(mensagem: str) -> str:
     """Recebe uma entrada do usuário."""
-    return input(f">>> {mensagem.capitalize()} ")
+    try:
+        return input(f">>> {mensagem.capitalize()} ")
+    except KeyboardInterrupt:
+        exit()
 
 
 def erro(mensagem: str) -> None:
