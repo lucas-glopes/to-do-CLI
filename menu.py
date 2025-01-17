@@ -39,7 +39,12 @@ def opcao_valida(opcoes: list, opcao_escolhida: str) -> bool:
         return False
 
 
-def main() -> None: ...
+def main() -> None:
+    OPCOES: list = ["adicionar tarefas", "visualizar lista", "editar tarefas", "sair"]
+    imprimir(opcoes=OPCOES)
+    opcao_escolhida: int = selecionar_opcao(opcoes=OPCOES)
+    print(opcao_escolhida)
+    print()
 
 
 if __name__ == "__main__":
