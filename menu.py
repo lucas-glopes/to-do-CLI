@@ -1,4 +1,6 @@
 from utilitarios import cabecalho
+from utilitarios import entrada
+from utilitarios import erro
 
 
 def imprimir(opcoes: list, tamanho=50) -> None:
@@ -8,6 +10,29 @@ def imprimir(opcoes: list, tamanho=50) -> None:
     for indice, opcao in enumerate(opcoes):
         print(f"[ {indice + 1} ]" + opcao.capitalize().center(tamanho - 10))
         print("-" * tamanho)
+
+
+def selecionar_opcao(opcoes: list) -> int:
+    while True:
+        opcao_escolhida: str = entrada("selecione uma opção:").lower().strip()
+        if opcao_valida(opcoes, opcao_escolhida):
+            if opcao_escolhida in opcoes:
+                return opcoes.index(opcao_escolhida) + 1
+            else:
+                return int(opcao_escolhida)
+        else:
+            erro("opção inválida!")
+            print()
+
+
+def opcao_valida(opcoes: list, opcao_escolhida: str) -> bool:
+    if opcao_escolhida in opcoes:
+        return True
+    elif opcao_escolhida.isnumeric():
+        if 1 <= int(opcao_escolhida) <= len(opcoes):
+            return True
+    else:
+        return False
 
 
 def main() -> None: ...
