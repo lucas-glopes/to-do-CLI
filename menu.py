@@ -33,6 +33,8 @@ def opcao_valida(opcoes: list, opcao_escolhida: str) -> bool:
     elif opcao_escolhida.isnumeric():
         if 1 <= int(opcao_escolhida) <= len(opcoes):
             return True
+        else:
+            return False
     else:
         return False
 
