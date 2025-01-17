@@ -13,6 +13,7 @@ def imprimir(opcoes: list, tamanho=50) -> None:
 
 
 def selecionar_opcao(opcoes: list) -> int:
+    """Retorna o número da opção escolhida pelo usuário."""
     while True:
         opcao_escolhida: str = entrada("selecione uma opção:").lower().strip()
         if opcao_valida(opcoes, opcao_escolhida):
@@ -26,6 +27,7 @@ def selecionar_opcao(opcoes: list) -> int:
 
 
 def opcao_valida(opcoes: list, opcao_escolhida: str) -> bool:
+    """Retorna True caso a opção escolhida seja válida, caso contrário retorna False."""
     if opcao_escolhida in opcoes:
         return True
     elif opcao_escolhida.isnumeric():
