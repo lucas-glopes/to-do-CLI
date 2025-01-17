@@ -10,3 +10,9 @@ def cabecalho(texto: str, tamanho: int = 50) -> None:
     print("=" * tamanho)
     print(texto.upper().center(tamanho))
     print("=" * tamanho)
+
+
+def entrada(mensagem: str) -> str:
+    """Recebe uma entrada do usuário."""
+    return input(f">>> {mensagem.capitalize()} ")
+
