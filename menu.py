@@ -23,7 +23,6 @@ def selecionar_opcao(opcoes: list) -> int:
                 return int(opcao_escolhida)
         else:
             erro("opção inválida!")
-            print()
 
 
 def opcao_valida(opcoes: list, opcao_escolhida: str) -> bool:
@@ -44,8 +43,6 @@ def main() -> None:
     imprimir(opcoes=OPCOES)
     opcao_escolhida: int = selecionar_opcao(opcoes=OPCOES)
     print(opcao_escolhida)
-    print()
-
 
 if __name__ == "__main__":
     main()
