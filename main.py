@@ -2,6 +2,7 @@ import menu
 
 
 def executar(opcao_escolhida: int, nome_arquivo: str = "tarefa.csv", tamanho: int = 50) -> None:
+    """Executa as funções da opção escolhida pelo usuário."""
     match opcao_escolhida:
         case 1:
             ...
