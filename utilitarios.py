@@ -26,3 +26,10 @@ def entrada(mensagem: str) -> str:
 def erro(mensagem: str) -> None:
     """Imprime uma mensagem de erro em formato personalizado."""
     print(f"~ {mensagem.capitalize()}")
+
+
+def informacao(mensagem: str, tamanho=50) -> None:
+    """Imprime uma mensagem informativa em formato personalizado."""
+    print()
+    print(mensagem.upper().center(tamanho))
+    print()
