@@ -3,7 +3,7 @@ from utilitarios import entrada
 from utilitarios import erro
 
 
-def imprimir(opcoes: list, tamanho=50) -> None:
+def imprimir(opcoes: list[str], tamanho=50) -> None:
     """Imprime o menu principal em formato personalizado."""
     cabecalho(texto="menu", tamanho=tamanho)
     print("-" * tamanho)
@@ -12,7 +12,7 @@ def imprimir(opcoes: list, tamanho=50) -> None:
         print("-" * tamanho)
 
 
-def selecionar_opcao(opcoes: list) -> int:
+def selecionar_opcao(opcoes: list[str]) -> int:
     """Retorna o número da opção escolhida pelo usuário."""
     while True:
         opcao_escolhida: str = entrada("selecione uma opção:").lower().strip()
@@ -25,7 +25,7 @@ def selecionar_opcao(opcoes: list) -> int:
             erro("opção inválida!")
 
 
-def opcao_valida(opcoes: list, opcao_escolhida: str) -> bool:
+def opcao_valida(opcoes: list[str], opcao_escolhida: str) -> bool:
     """Retorna True caso a opção escolhida seja válida, caso contrário retorna False."""
     if opcao_escolhida in opcoes:
         return True
@@ -39,10 +39,16 @@ def opcao_valida(opcoes: list, opcao_escolhida: str) -> bool:
 
 
 def main() -> None:
-    OPCOES: list = ["adicionar tarefas", "visualizar lista", "editar tarefas", "sair"]
+    OPCOES: list[str] = [
+        "adicionar tarefas",
+        "visualizar lista",
+        "editar tarefas",
+        "sair",
+    ]
     imprimir(opcoes=OPCOES)
     opcao_escolhida: int = selecionar_opcao(opcoes=OPCOES)
     print(opcao_escolhida)
+
 
 if __name__ == "__main__":
     main()
