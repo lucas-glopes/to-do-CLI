@@ -1,4 +1,5 @@
 from sys import exit
+import csv
 
 
 def titulo(texto: str, tamanho: int = 50) -> None:
@@ -33,3 +34,16 @@ def informacao(mensagem: str, tamanho=50) -> None:
     print()
     print(mensagem.upper().center(tamanho))
     print()
+
+
+def ler_tarefas(nome_arquivo: str = "tarefas.csv") -> list[dict[str, str]]:
+    """Lê o arquivo da lista e retorna as tarefas contidas nele."""
+    tarefas: list[dict[str, str]] = []
+    with open(nome_arquivo, "r") as arquivo_tarefas:
+        leitor_csv: object = csv.DictReader(arquivo_tarefas)
+        for tarefa in leitor_csv:
+            tarefas.append(tarefa)
+        arquivo_tarefas.close()
+    tarefas.pop(0)
+    return tarefas
+
