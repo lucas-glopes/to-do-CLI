@@ -1,7 +1,9 @@
 import menu
 
 
-def executar(opcao_escolhida: int, nome_arquivo: str = "tarefa.csv", tamanho: int = 50) -> None:
+def executar(
+    opcao_escolhida: int, nome_arquivo: str = "tarefa.csv", tamanho: int = 50
+) -> None:
     """Executa as funções da opção escolhida pelo usuário."""
     match opcao_escolhida:
         case 1:
@@ -15,7 +17,12 @@ def executar(opcao_escolhida: int, nome_arquivo: str = "tarefa.csv", tamanho: in
 
 
 def main() -> None:
-    OPCOES: list = ["adicionar tarefas", "visualizar lista", "editar tarefas", "sair"]
+    OPCOES: list[str] = [
+        "adicionar tarefas",
+        "visualizar lista",
+        "editar tarefas",
+        "sair",
+    ]
     TAMANHO: int = 50
 
     menu.imprimir(opcoes=OPCOES, tamanho=TAMANHO)
