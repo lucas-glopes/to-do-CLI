@@ -1,7 +1,7 @@
 import menu
 
 
-def executar(opcao_escolhida: int, nome_arquivo: str, tamanho: int):
+def executar(opcao_escolhida: int, nome_arquivo: str = "tarefa.csv", tamanho: int = 50) -> None:
     match opcao_escolhida:
         case 1:
             ...
