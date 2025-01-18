@@ -1,6 +1,4 @@
-from utilitarios import cabecalho
-from utilitarios import entrada
-from utilitarios import erro
+from utilitarios import cabecalho, entrada, erro
 
 
 def imprimir(opcoes: list[str], tamanho=50) -> None:
