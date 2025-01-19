@@ -21,6 +21,8 @@ def entrada(mensagem: str) -> str:
     try:
         return input(f">>> {mensagem.capitalize()} ")
     except KeyboardInterrupt:
+        print()
+        informacao("programa encerrado")
         exit()
 
 
