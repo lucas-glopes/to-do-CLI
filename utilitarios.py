@@ -59,3 +59,9 @@ def registrar_tarefas(
         escritor_csv: object = csv.DictWriter(f=arquivo_tarefas, fieldnames=CAMPOS)
         escritor_csv.writerows(tarefas)
         arquivo_tarefas.close()
+
+
+def resposta_valida(resposta: str) -> bool:
+    """Retorna True caso a resposta seja "sim" ou "não", caso contrário retorna False."""
+    respostas_validas: list[str] = ["sim", "não", "nao", "s", "n"]
+    return resposta in respostas_validas
