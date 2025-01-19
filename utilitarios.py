@@ -47,3 +47,13 @@ def ler_tarefas(nome_arquivo: str = "tarefas.csv") -> list[dict[str, str]]:
     tarefas.pop(0)
     return tarefas
 
+
+def registrar_tarefas(
+    tarefas: list[dict[str, str]], nome_arquivo: str = "tarefas.csv"
+) -> None:
+    """Escreves a lista de novas tarefas no arquivo de lista."""
+    with open(nome_arquivo, "a") as arquivo_tarefas:
+        CAMPOS: list[str] = ["Título", "Descrição", "Status"]
+        escritor_csv: object = csv.DictWriter(f=arquivo_tarefas, fieldnames=CAMPOS)
+        escritor_csv.writerows(tarefas)
+        arquivo_tarefas.close()
