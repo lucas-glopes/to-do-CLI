@@ -1,4 +1,5 @@
 import menu
+from utilitarios import informacao
 
 
 def executar(
@@ -24,9 +25,16 @@ def main() -> None:
         "sair",
     ]
     TAMANHO: int = 50
+    NOME_ARQUIVO: str = "tarefas.csv"
 
     menu.imprimir(opcoes=OPCOES, tamanho=TAMANHO)
-    opcao_escolhida: int = menu.selecionar_opcao(opcoes=OPCOES)
+
+    while True:
+        opcao_escolhida: int = menu.selecionar_opcao(opcoes=OPCOES)
+        if opcao_escolhida == len(OPCOES):
+            informacao("programa encerrado")
+            return
+        executar(opcao_escolhida, nome_arquivo=NOME_ARQUIVO, tamanho=TAMANHO)
 
 
 if __name__ == "__main__":
