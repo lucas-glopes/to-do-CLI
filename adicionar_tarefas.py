@@ -1,4 +1,3 @@
-def main() -> None: ...
 from pathlib import Path
 
 from utilitarios import (
@@ -63,5 +62,8 @@ def criar_lista(nome_arquivo: str = "tarefas.csv", tamanho=50) -> None:
 
 
 def main() -> None:
+    adicionar()
+
+
 if __name__ == "__main__":
     main()
