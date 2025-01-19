@@ -1,4 +1,5 @@
 import menu
+import adicionar_tarefas
 from utilitarios import informacao
 
 
@@ -8,7 +9,7 @@ def executar(
     """Executa as funções da opção escolhida pelo usuário."""
     match opcao_escolhida:
         case 1:
-            ...
+            adicionar_tarefas.adicionar(nome_arquivo, tamanho)
         case 2:
             ...
         case 3:
