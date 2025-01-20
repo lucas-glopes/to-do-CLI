@@ -15,7 +15,7 @@ def executar(
         case 3:
             ...
         case _:
-            ...
+            informacao("opção não implementada")
 
 
 def main() -> None:
