@@ -42,7 +42,7 @@ def ler_tarefas(nome_arquivo: str = "tarefas.csv") -> list[dict[str, str]]:
     """Lê o arquivo da lista e retorna as tarefas contidas nele."""
     tarefas: list[dict[str, str]] = []
     with open(nome_arquivo, "r") as arquivo_tarefas:
-        leitor_csv: object = csv.DictReader(arquivo_tarefas)
+        leitor_csv: object = csv.DictReader(f=arquivo_tarefas, delimiter=";")
         for tarefa in leitor_csv:
             tarefas.append(tarefa)
         arquivo_tarefas.close()
@@ -56,7 +56,9 @@ def registrar_tarefas(
     """Escreves a lista de novas tarefas no arquivo de lista."""
     with open(nome_arquivo, "a") as arquivo_tarefas:
         CAMPOS: list[str] = ["Título", "Descrição", "Status"]
-        escritor_csv: object = csv.DictWriter(f=arquivo_tarefas, fieldnames=CAMPOS)
+        escritor_csv: object = csv.DictWriter(
+            f=arquivo_tarefas, fieldnames=CAMPOS, delimiter=";"
+        )
         escritor_csv.writerows(tarefas)
         arquivo_tarefas.close()
 
