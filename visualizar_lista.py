@@ -1,4 +1,10 @@
-from utilitarios import cabecalho, informacao, ler_tarefas
+from utilitarios import (
+    cabecalho,
+    informacao,
+    ler_tarefas,
+    titulo,
+)
+
 from pathlib import Path
 
 
@@ -34,6 +40,16 @@ def imprimir(nome_arquivo: str = "tarefas.csv", tamanho: int = 50) -> None:
 
 
 def main() -> None: ...
+def menu_acoes(acoes: list, tamanho: int = 50) -> None:
+    """Imprime o menu de ações em formato personalizado."""
+    titulo(texto="Ações", tamanho=tamanho)
+    print("-" * tamanho)
+
+    for indice, acao in enumerate(acoes):
+        print(f"( {indice + 1} )" + acao.capitalize().center(tamanho - 10))
+    print("-" * tamanho)
+
+
 
 
 if __name__ == "__main__":
