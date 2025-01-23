@@ -7,7 +7,6 @@ from utilitarios import (
     erro,
     informacao,
     registrar_tarefas,
-    resposta_valida,
 )
 
 import csv
@@ -59,6 +58,12 @@ def criar_lista(nome_arquivo: str = "tarefas.csv", tamanho=50) -> None:
         arquivo_tarefas.close()
 
     informacao(mensagem=f'arquivo "{nome_arquivo}" criado', tamanho=tamanho)
+
+
+def resposta_valida(resposta: str) -> bool:
+    """Retorna True caso a resposta seja "sim" ou "não", caso contrário retorna False."""
+    respostas_validas: list[str] = ["sim", "não", "nao", "s", "n"]
+    return resposta in respostas_validas
 
 
 def main() -> None:

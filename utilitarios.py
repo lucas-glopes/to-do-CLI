@@ -62,12 +62,6 @@ def registrar_tarefas(
         arquivo_tarefas.close()
 
 
-def resposta_valida(resposta: str) -> bool:
-    """Retorna True caso a resposta seja "sim" ou "não", caso contrário retorna False."""
-    respostas_validas: list[str] = ["sim", "não", "nao", "s", "n"]
-    return resposta in respostas_validas
-
-
 def acao_valida(acoes: list[str], acao_escolhida: str) -> bool:
     """Retorna True caso a ação seja válida, caso contrário retorna False."""
     if acao_escolhida in acoes:
