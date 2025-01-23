@@ -3,6 +3,9 @@ from utilitarios import (
     informacao,
     ler_tarefas,
     titulo,
+    entrada,
+    acao_valida,
+    erro,
 )
 
 from pathlib import Path
@@ -48,6 +51,19 @@ def menu_acoes(acoes: list, tamanho: int = 50) -> None:
     for indice, acao in enumerate(acoes):
         print(f"( {indice + 1} )" + acao.capitalize().center(tamanho - 10))
     print("-" * tamanho)
+
+
+def selecionar_acao(acoes: list[str]) -> int:
+    """Retorna o número da ação escolhida pelo usuário."""
+    while True:
+        acao_escolhida: str = entrada("selecione uma ação:").lower().strip()
+        if acao_valida(acoes, acao_escolhida):
+            if acao_escolhida in acoes:
+                return acoes.index(acao_escolhida) + 1
+            else:
+                return int(acao_escolhida)
+        else:
+            erro("opção inválida!")
 
 
 
