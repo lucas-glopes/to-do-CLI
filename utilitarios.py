@@ -46,7 +46,6 @@ def ler_tarefas(nome_arquivo: str = "tarefas.csv") -> list[dict[str, str]]:
         for tarefa in leitor_csv:
             tarefas.append(tarefa)
         arquivo_tarefas.close()
-    tarefas.pop(0)
     return tarefas
 
 
