@@ -99,6 +99,22 @@ def ver_detalhes(id: int, nome_arquivo: str = "tarefas.csv", tamanho: int = 50) 
     print("=" * tamanho)
 
 
+def entrada_id(nome_arquivo: str = "tarefas.csv") -> int:
+    """Recebe do usuário o ID de uma tarefa e o retorna."""
+    tarefas: list[dict[str, str]] = ler_tarefas(nome_arquivo)
+
+    while True:
+        try:
+            id: int = int(entrada("identificador (#) da tarefa:"))
+        except ValueError:
+            erro("entrada inválida!")
+        else:
+            if 1 <= id <= len(tarefas):
+                return id
+            else:
+                erro("identificador não encontrado.")
+
+
 
 
 if __name__ == "__main__":
