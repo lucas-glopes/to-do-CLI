@@ -66,6 +66,39 @@ def selecionar_acao(acoes: list[str]) -> int:
             erro("opção inválida!")
 
 
+def ver_detalhes(id: int, nome_arquivo: str = "tarefas.csv", tamanho: int = 50) -> None:
+    """Imprime título, descrição e status completos de uma tarefa em formato personalizado."""
+    tarefas: list[dict[str, str]] = ler_tarefas(nome_arquivo)
+    titulo_tarefa, descricao_tarefa, status = list(tarefas[id - 1].values())
+
+    print("=" * tamanho)
+    print(f"# {str(id):>2} | ", end="")
+
+    if len(titulo_tarefa) <= tamanho - 21:
+        print(f"{titulo_tarefa[:(tamanho - 21)]}", end="")
+        print(f"[ {status.upper():<9} ]".rjust(tamanho - len(titulo_tarefa) - 7))
+    else:
+        print(f"{titulo_tarefa[:(tamanho - 21)]}", end="")
+        print(f"[ {status.upper():<9} ]".rjust(14))
+
+        while len(titulo_tarefa) > tamanho - 21:
+            titulo_tarefa = titulo_tarefa[(tamanho - 21) :]
+            print(" " * 5 + "| " + titulo_tarefa[: tamanho - 21])
+
+    print("-" * tamanho)
+
+    if len(descricao_tarefa) <= tamanho:
+        print(descricao_tarefa)
+    else:
+        print(f"{descricao_tarefa[:tamanho]}")
+
+        while len(descricao_tarefa) > tamanho:
+            descricao_tarefa = descricao_tarefa[tamanho:]
+            print(descricao_tarefa[:tamanho])
+
+    print("=" * tamanho)
+
+
 
 
 if __name__ == "__main__":
