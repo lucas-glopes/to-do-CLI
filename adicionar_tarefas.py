@@ -63,11 +63,3 @@ def resposta_valida(resposta: str) -> bool:
     """Retorna True caso a resposta seja "sim" ou "não", caso contrário retorna False."""
     respostas_validas: list[str] = ["sim", "não", "nao", "s", "n"]
     return resposta in respostas_validas
-
-
-def main() -> None:
-    adicionar()
-
-
-if __name__ == "__main__":
-    main()

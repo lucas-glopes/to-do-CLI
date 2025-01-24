@@ -129,25 +129,3 @@ def entrada_id(nome_arquivo: str = "tarefas.csv", tamanho: int = 50) -> int:
                 return id
             else:
                 erro("identificador não encontrado.")
-
-
-def main() -> None:
-    ACOES: list[str] = ["ver detalhes", "voltar ao menu"]
-
-    imprimir()
-    menu_acoes(acoes=ACOES)
-
-    while True:
-        acao_escolhida: int = selecionar_acao(acoes=ACOES)
-        match acao_escolhida:
-            case 1:
-                id: int = entrada_id()
-                ver_detalhes(id)
-            case 2:
-                return
-            case _:
-                informacao("ação não implementada")
-
-
-if __name__ == "__main__":
-    main()
