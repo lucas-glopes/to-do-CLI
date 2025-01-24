@@ -34,7 +34,7 @@ def main() -> None:
     while True:
         opcao_escolhida: int = menu.selecionar_opcao(opcoes=OPCOES, tamanho=TAMANHO)
         if opcao_escolhida == len(OPCOES):
-            informacao("programa encerrado")
+            informacao("programa encerrado", tamanho=TAMANHO)
             return
         executar(opcao_escolhida, nome_arquivo=NOME_ARQUIVO, tamanho=TAMANHO)
 
