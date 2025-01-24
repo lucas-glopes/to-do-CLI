@@ -31,7 +31,7 @@ def erro(mensagem: str) -> None:
     print(f"~ {mensagem.capitalize()}")
 
 
-def informacao(mensagem: str, tamanho=50) -> None:
+def informacao(mensagem: str, tamanho: int = 50) -> None:
     """Imprime uma mensagem informativa em formato personalizado."""
     print()
     print(mensagem.upper().center(tamanho))
