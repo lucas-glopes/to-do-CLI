@@ -26,10 +26,10 @@ def imprimir(nome_arquivo: str = "tarefas.csv", tamanho: int = 50) -> None:
         print(f"# {str(indice + 1):>2} | ", end="")
 
         if len(titulo_tarefa) <= tamanho - 21:
-            print(f"{titulo_tarefa[:(tamanho - 21)]}", end="")
+            print(f"{titulo_tarefa[: (tamanho - 21)]}", end="")
             print(f"[ {status.upper():<9} ]".rjust(tamanho - len(titulo_tarefa) - 7))
         else:
-            print(f"{titulo_tarefa[:(tamanho - 24)]}...", end="")
+            print(f"{titulo_tarefa[: (tamanho - 24)]}...", end="")
             print(f"[ {status.upper():<9} ]".rjust(14))
 
         print("-" * tamanho)
@@ -37,7 +37,7 @@ def imprimir(nome_arquivo: str = "tarefas.csv", tamanho: int = 50) -> None:
         if len(descricao_tarefa) <= tamanho:
             print(descricao_tarefa)
         else:
-            print(f"{descricao_tarefa[:tamanho - 3]}...")
+            print(f"{descricao_tarefa[: tamanho - 3]}...")
 
         print("=" * tamanho)
 
@@ -74,10 +74,10 @@ def ver_detalhes(id: int, nome_arquivo: str = "tarefas.csv", tamanho: int = 50) 
     print(f"# {str(id):>2} | ", end="")
 
     if len(titulo_tarefa) <= tamanho - 21:
-        print(f"{titulo_tarefa[:(tamanho - 21)]}", end="")
+        print(f"{titulo_tarefa[: (tamanho - 21)]}", end="")
         print(f"[ {status.upper():<9} ]".rjust(tamanho - len(titulo_tarefa) - 7))
     else:
-        print(f"{titulo_tarefa[:(tamanho - 21)]}", end="")
+        print(f"{titulo_tarefa[: (tamanho - 21)]}", end="")
         print(f"[ {status.upper():<9} ]".rjust(14))
 
         while len(titulo_tarefa) > tamanho - 21:
