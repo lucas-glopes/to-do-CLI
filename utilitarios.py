@@ -62,6 +62,29 @@ def registrar_tarefas(
         arquivo_tarefas.close()
 
 
+def menu_acoes(acoes: list, tamanho: int = 50) -> None:
+    """Imprime o menu de ações em formato personalizado."""
+    titulo(texto="Ações", tamanho=tamanho)
+    print("-" * tamanho)
+
+    for indice, acao in enumerate(acoes):
+        print(f"( {indice + 1} )" + acao.capitalize().center(tamanho - 10))
+    print("-" * tamanho)
+
+
+def selecionar_acao(acoes: list[str], tamanho: int = 50) -> int:
+    """Retorna o número da ação escolhida pelo usuário."""
+    while True:
+        acao_escolhida: str = entrada("selecione uma ação:", tamanho).lower().strip()
+        if acao_valida(acoes, acao_escolhida):
+            if acao_escolhida in acoes:
+                return acoes.index(acao_escolhida) + 1
+            else:
+                return int(acao_escolhida)
+        else:
+            erro("opção inválida!")
+
+
 def acao_valida(acoes: list[str], acao_escolhida: str) -> bool:
     """Retorna True caso a ação seja válida, caso contrário retorna False."""
     if acao_escolhida in acoes:

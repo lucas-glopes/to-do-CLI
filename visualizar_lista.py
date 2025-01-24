@@ -1,13 +1,13 @@
 from pathlib import Path
 
 from utilitarios import (
-    acao_valida,
     cabecalho,
     entrada,
     erro,
     informacao,
     ler_tarefas,
-    titulo,
+    menu_acoes,
+    selecionar_acao,
 )
 
 
@@ -57,29 +57,6 @@ def imprimir(nome_arquivo: str = "tarefas.csv", tamanho: int = 50) -> None:
             print(f"{descricao_tarefa[: tamanho - 3]}...")
 
         print("=" * tamanho)
-
-
-def menu_acoes(acoes: list, tamanho: int = 50) -> None:
-    """Imprime o menu de ações em formato personalizado."""
-    titulo(texto="Ações", tamanho=tamanho)
-    print("-" * tamanho)
-
-    for indice, acao in enumerate(acoes):
-        print(f"( {indice + 1} )" + acao.capitalize().center(tamanho - 10))
-    print("-" * tamanho)
-
-
-def selecionar_acao(acoes: list[str], tamanho: int = 50) -> int:
-    """Retorna o número da ação escolhida pelo usuário."""
-    while True:
-        acao_escolhida: str = entrada("selecione uma ação:", tamanho).lower().strip()
-        if acao_valida(acoes, acao_escolhida):
-            if acao_escolhida in acoes:
-                return acoes.index(acao_escolhida) + 1
-            else:
-                return int(acao_escolhida)
-        else:
-            erro("opção inválida!")
 
 
 def ver_detalhes(id: int, nome_arquivo: str = "tarefas.csv", tamanho: int = 50) -> None:
