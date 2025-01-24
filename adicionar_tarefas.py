@@ -36,7 +36,9 @@ def adicionar(nome_arquivo: str = "tarefas.csv", tamanho: int = 50) -> None:
         )
 
         while True:
-            continuar: str = entrada("Adicionar mais tarefas? [s/n]", tamanho).lower().strip()
+            continuar: str = (
+                entrada("Adicionar mais tarefas? [s/n]", tamanho).lower().strip()
+            )
             if resposta_valida(continuar):
                 break
             erro("resposta inválida!")
