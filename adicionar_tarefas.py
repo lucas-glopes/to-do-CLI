@@ -41,7 +41,7 @@ def adicionar(nome_arquivo: str = "tarefas.csv", tamanho: int = 50) -> None:
                 break
             erro("resposta inválida!")
 
-        if not continuar in ["sim", "s"]:
+        if continuar not in ["sim", "s"]:
             break
 
     registrar_tarefas(tarefas=novas_tarefas, nome_arquivo=nome_arquivo)
