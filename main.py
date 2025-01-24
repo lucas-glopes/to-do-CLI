@@ -30,9 +30,8 @@ def main() -> None:
     TAMANHO: int = 50
     NOME_ARQUIVO: str = "tarefas.csv"
 
-    menu.imprimir(opcoes=OPCOES, tamanho=TAMANHO)
-
     while True:
+        menu.imprimir(opcoes=OPCOES, tamanho=TAMANHO)
         opcao_escolhida: int = menu.selecionar_opcao(opcoes=OPCOES, tamanho=TAMANHO)
         if opcao_escolhida == len(OPCOES):
             informacao("programa encerrado", tamanho=TAMANHO)
