@@ -11,7 +11,9 @@ from utilitarios import (
 )
 
 
-def visualizar(acoes: list[str], nome_arquivo: str = "tarefas.csv", tamanho: int = 50) -> None:
+def visualizar(
+    acoes: list[str], nome_arquivo: str = "tarefas.csv", tamanho: int = 50
+) -> None:
     """Imprime a lista de tarefas e a de ações, recebe uma ação escolhida em loop e a executa."""
     imprimir(nome_arquivo, tamanho)
     menu_acoes(acoes, tamanho)
