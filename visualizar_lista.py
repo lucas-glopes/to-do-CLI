@@ -1,14 +1,14 @@
+from pathlib import Path
+
 from utilitarios import (
+    acao_valida,
     cabecalho,
+    entrada,
+    erro,
     informacao,
     ler_tarefas,
     titulo,
-    entrada,
-    acao_valida,
-    erro,
 )
-
-from pathlib import Path
 
 
 def imprimir(nome_arquivo: str = "tarefas.csv", tamanho: int = 50) -> None:

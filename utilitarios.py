@@ -1,5 +1,5 @@
-from sys import exit
 import csv
+from sys import exit
 
 
 def titulo(texto: str, tamanho: int = 50) -> None:

@@ -1,15 +1,14 @@
+import csv
 from pathlib import Path
 
 from utilitarios import (
     cabecalho,
-    titulo,
     entrada,
     erro,
     informacao,
     registrar_tarefas,
+    titulo,
 )
-
-import csv
 
 
 def adicionar(nome_arquivo: str = "tarefas.csv", tamanho: int = 50) -> None:

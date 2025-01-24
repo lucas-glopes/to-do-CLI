@@ -1,5 +1,6 @@
-import menu
 import adicionar_tarefas
+import menu
+import visualizar_lista
 from utilitarios import informacao
 
 
