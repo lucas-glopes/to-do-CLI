@@ -52,10 +52,10 @@ def menu_acoes(acoes: list, tamanho: int = 50) -> None:
     print("-" * tamanho)
 
 
-def selecionar_acao(acoes: list[str]) -> int:
+def selecionar_acao(acoes: list[str], tamanho: int = 50) -> int:
     """Retorna o número da ação escolhida pelo usuário."""
     while True:
-        acao_escolhida: str = entrada("selecione uma ação:").lower().strip()
+        acao_escolhida: str = entrada("selecione uma ação:", tamanho).lower().strip()
         if acao_valida(acoes, acao_escolhida):
             if acao_escolhida in acoes:
                 return acoes.index(acao_escolhida) + 1
@@ -98,13 +98,13 @@ def ver_detalhes(id: int, nome_arquivo: str = "tarefas.csv", tamanho: int = 50) 
     print("=" * tamanho)
 
 
-def entrada_id(nome_arquivo: str = "tarefas.csv") -> int:
+def entrada_id(nome_arquivo: str = "tarefas.csv", tamanho: int = 50) -> int:
     """Recebe do usuário o ID de uma tarefa e o retorna."""
     tarefas: list[dict[str, str]] = ler_tarefas(nome_arquivo)
 
     while True:
         try:
-            id: int = int(entrada("identificador (#) da tarefa:"))
+            id: int = int(entrada("identificador (#) da tarefa:", tamanho))
         except ValueError:
             erro("entrada inválida!")
         else:

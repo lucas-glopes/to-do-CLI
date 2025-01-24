@@ -16,13 +16,13 @@ def cabecalho(texto: str, tamanho: int = 50) -> None:
     print("=" * tamanho)
 
 
-def entrada(mensagem: str) -> str:
+def entrada(mensagem: str, tamanho: int = 50) -> str:
     """Recebe uma entrada do usuário."""
     try:
         return input(f">>> {mensagem.capitalize()} ")
     except KeyboardInterrupt:
         print()
-        informacao("programa encerrado")
+        informacao("programa encerrado", tamanho)
         exit()
 
 

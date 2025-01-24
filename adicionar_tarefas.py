@@ -22,11 +22,11 @@ def adicionar(nome_arquivo: str = "tarefas.csv", tamanho: int = 50) -> None:
     while True:
         titulo(texto="Nova tarefa", tamanho=tamanho)
         while True:
-            titulo_tarefa: str = entrada("Título:")
+            titulo_tarefa: str = entrada("Título:", tamanho)
             if len(titulo_tarefa) > 0:
                 break
             erro("o título da tarefa é obrigatório!")
-        descricao_tarefa: str = entrada("Descrição:")
+        descricao_tarefa: str = entrada("Descrição:", tamanho)
         novas_tarefas.append(
             {
                 "Título": titulo_tarefa,
@@ -36,7 +36,7 @@ def adicionar(nome_arquivo: str = "tarefas.csv", tamanho: int = 50) -> None:
         )
 
         while True:
-            continuar: str = entrada("Adicionar mais tarefas? [s/n]").lower().strip()
+            continuar: str = entrada("Adicionar mais tarefas? [s/n]", tamanho).lower().strip()
             if resposta_valida(continuar):
                 break
             erro("resposta inválida!")

@@ -16,7 +16,7 @@ def executar(
         case 3:
             ...
         case _:
-            informacao("opção não implementada")
+            informacao("opção não implementada", tamanho)
 
 
 def main() -> None:
@@ -32,7 +32,7 @@ def main() -> None:
     menu.imprimir(opcoes=OPCOES, tamanho=TAMANHO)
 
     while True:
-        opcao_escolhida: int = menu.selecionar_opcao(opcoes=OPCOES)
+        opcao_escolhida: int = menu.selecionar_opcao(opcoes=OPCOES, tamanho=TAMANHO)
         if opcao_escolhida == len(OPCOES):
             informacao("programa encerrado")
             return

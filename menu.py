@@ -10,10 +10,10 @@ def imprimir(opcoes: list[str], tamanho=50) -> None:
         print("-" * tamanho)
 
 
-def selecionar_opcao(opcoes: list[str]) -> int:
+def selecionar_opcao(opcoes: list[str], tamanho: int = 50) -> int:
     """Retorna o número da opção escolhida pelo usuário."""
     while True:
-        opcao_escolhida: str = entrada("selecione uma opção:").lower().strip()
+        opcao_escolhida: str = entrada("selecione uma opção:", tamanho).lower().strip()
         if opcao_valida(opcoes, opcao_escolhida):
             if opcao_escolhida in opcoes:
                 return opcoes.index(opcao_escolhida) + 1
