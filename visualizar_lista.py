@@ -11,6 +11,23 @@ from utilitarios import (
 )
 
 
+def visualizar(acoes: list[str], nome_arquivo: str = "tarefas.csv", tamanho: int = 50) -> None:
+    """Imprime a lista de tarefas e a de ações, recebe uma ação escolhida em loop e a executa."""
+    imprimir(nome_arquivo, tamanho)
+    menu_acoes(acoes, tamanho)
+
+    while True:
+        acao_escolhida: int = selecionar_acao(acoes, tamanho)
+        match acao_escolhida:
+            case 1:
+                id: int = entrada_id(nome_arquivo, tamanho)
+                ver_detalhes(id, nome_arquivo, tamanho)
+            case 2:
+                return
+            case _:
+                informacao("ação não implementada", tamanho)
+
+
 def imprimir(nome_arquivo: str = "tarefas.csv", tamanho: int = 50) -> None:
     """Imprime o cabeçalho e a lista de tarefas em formato personalizado."""
     cabecalho(texto="lista de tarefas", tamanho=tamanho)

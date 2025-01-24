@@ -13,20 +13,7 @@ def executar(
             adicionar_tarefas.adicionar(nome_arquivo, tamanho)
         case 2:
             ACOES: list[str] = ["ver detalhes", "voltar ao menu"]
-
-            visualizar_lista.imprimir(nome_arquivo, tamanho)
-            visualizar_lista.menu_acoes(acoes=ACOES, tamanho=tamanho)
-
-            while True:
-                acao_escolhida: int = visualizar_lista.selecionar_acao(acoes=ACOES, tamanho=tamanho)
-                match acao_escolhida:
-                    case 1:
-                        id: int = visualizar_lista.entrada_id(nome_arquivo, tamanho)
-                        visualizar_lista.ver_detalhes(id, nome_arquivo, tamanho)
-                    case 2:
-                        return
-                    case _:
-                        informacao("ação não implementada", tamanho)
+            visualizar_lista.visualizar(ACOES, nome_arquivo, tamanho)
         case 3:
             ...
         case _:
