@@ -1,8 +1,8 @@
-import csv
 from pathlib import Path
 
 from utilitarios import (
     cabecalho,
+    criar_lista,
     entrada,
     erro,
     informacao,
@@ -14,7 +14,7 @@ from utilitarios import (
 def adicionar(nome_arquivo: str = "tarefas.csv", tamanho: int = 50) -> None:
     """Recebe título e descrição das tarefas em loop e as registra na lista de tarefas."""
     if not Path.exists(Path.cwd() / nome_arquivo):
-        criar_lista(nome_arquivo, tamanho)
+        criar_lista(nome_arquivo, tamanho, True)
 
     cabecalho(texto="adicionar tarefas", tamanho=tamanho)
     novas_tarefas: list[dict[str, str]] = []
@@ -48,17 +48,6 @@ def adicionar(nome_arquivo: str = "tarefas.csv", tamanho: int = 50) -> None:
 
     registrar_tarefas(tarefas=novas_tarefas, nome_arquivo=nome_arquivo)
     informacao(mensagem="novas tarefas registradas", tamanho=tamanho)
-
-
-def criar_lista(nome_arquivo: str = "tarefas.csv", tamanho=50) -> None:
-    """Cria/sobrescreve o arquivo de lista com o nome fornecido."""
-    with open(nome_arquivo, "w") as arquivo_tarefas:
-        CAMPOS: list[str] = ["Título", "Descrição", "Status"]
-        escritor_csv: object = csv.DictWriter(f=arquivo_tarefas, fieldnames=CAMPOS)
-        escritor_csv.writeheader()
-        arquivo_tarefas.close()
-
-    informacao(mensagem=f'arquivo "{nome_arquivo}" criado', tamanho=tamanho)
 
 
 def resposta_valida(resposta: str) -> bool:
