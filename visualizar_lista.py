@@ -2,8 +2,7 @@ from pathlib import Path
 
 from utilitarios import (
     cabecalho,
-    entrada,
-    erro,
+    entrada_id,
     informacao,
     ler_tarefas,
     menu_acoes,
@@ -92,19 +91,3 @@ def ver_detalhes(id: int, nome_arquivo: str = "tarefas.csv", tamanho: int = 50) 
             print(descricao_tarefa[:tamanho])
 
     print("=" * tamanho)
-
-
-def entrada_id(nome_arquivo: str = "tarefas.csv", tamanho: int = 50) -> int:
-    """Recebe do usuário o ID de uma tarefa e o retorna."""
-    tarefas: list[dict[str, str]] = ler_tarefas(nome_arquivo)
-
-    while True:
-        try:
-            id: int = int(entrada("identificador (#) da tarefa:", tamanho))
-        except ValueError:
-            erro("entrada inválida!")
-        else:
-            if 1 <= id <= len(tarefas):
-                return id
-            else:
-                erro("identificador não encontrado.")
