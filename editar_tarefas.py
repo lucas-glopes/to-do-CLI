@@ -1,10 +1,13 @@
-from utilitarios import cabecalho, informacao, menu_acoes, selecionar_acao
 from utilitarios import (
     cabecalho,
+    criar_lista,
     entrada_id,
     informacao,
+    ler_tarefas,
     menu_acoes,
+    registrar_tarefas,
     selecionar_acao,
+)
 
 
 def editar(
@@ -13,13 +16,19 @@ def editar(
     """Imprime a lista de ações, recebe uma ação escolhida em loop e a executa."""
     cabecalho("editar tarefas")
     menu_acoes(acoes, tamanho)
+    tarefas: list[dict[str, str]] = ler_tarefas(nome_arquivo)
 
     while True:
         acao_escolhida: int = selecionar_acao(acoes, tamanho)
         if acao_escolhida != len(acoes):
-            executar(acao_escolhida, tamanho)
+            tarefas = executar(tarefas, acao_escolhida, nome_arquivo, tamanho)
         else:
-            return
+            break
+
+    criar_lista(nome_arquivo, tamanho)
+    registrar_tarefas(tarefas, nome_arquivo)
+    informacao("tarefas atualizadas", tamanho)
+
 
 def executar(
     tarefas: list[dict[str, str]],
