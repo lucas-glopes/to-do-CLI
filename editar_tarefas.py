@@ -10,6 +10,7 @@ from utilitarios import (
 def editar(
     acoes: list[str], nome_arquivo: str = "tarefas.csv", tamanho: int = 50
 ) -> None:
+    """Imprime a lista de ações, recebe uma ação escolhida em loop e a executa."""
     cabecalho("editar tarefas")
     menu_acoes(acoes, tamanho)
 
@@ -26,6 +27,7 @@ def executar(
     nome_arquivo: str = "tarefas.csv",
     tamanho: int = 50,
 ) -> list[dict[str, str]]:
+    """Executa as funções da ação escolhida pelo usuário."""
     id: int = entrada_id(nome_arquivo, tamanho)
 
     match acao_escolhida:
@@ -48,6 +50,7 @@ def executar(
 def alterar_status(
     tarefas: list[dict[str, str]], id: int, tamanho: int = 50
 ) -> list[dict[str, str]]:
+    """Altera o status da tarefa com o id selecionado."""
     if tarefas[id - 1]["Status"] == "pendente":
         tarefas[id - 1].update({"Status": "concluída"})
         informacao("tarefa marcada como -concluída-", tamanho)
