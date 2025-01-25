@@ -14,7 +14,7 @@ def editar(
     acoes: list[str], nome_arquivo: str = "tarefas.csv", tamanho: int = 50
 ) -> None:
     """Imprime a lista de ações, recebe uma ação escolhida em loop e a executa."""
-    cabecalho("editar tarefas")
+    cabecalho("editar tarefas", tamanho)
     menu_acoes(acoes, tamanho)
     tarefas: list[dict[str, str]] = ler_tarefas(nome_arquivo)
 
@@ -41,7 +41,7 @@ def executar(
 
     match acao_escolhida:
         case 1:
-            tarefas = alterar_status(tarefas, id)
+            tarefas = alterar_status(tarefas, id, tamanho)
         case 2:
             ...
         case 3:
