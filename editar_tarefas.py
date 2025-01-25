@@ -1,7 +1,15 @@
 from utilitarios import cabecalho, informacao, menu_acoes, selecionar_acao
+from utilitarios import (
+    cabecalho,
+    entrada_id,
+    informacao,
+    menu_acoes,
+    selecionar_acao,
 
 
-def editar(acoes: list[str], tamanho: int = 50) -> None:
+def editar(
+    acoes: list[str], nome_arquivo: str = "tarefas.csv", tamanho: int = 50
+) -> None:
     cabecalho("editar tarefas")
     menu_acoes(acoes, tamanho)
 
@@ -12,8 +20,14 @@ def editar(acoes: list[str], tamanho: int = 50) -> None:
         else:
             return
 
+def executar(
+    tarefas: list[dict[str, str]],
+    acao_escolhida: int,
+    nome_arquivo: str = "tarefas.csv",
+    tamanho: int = 50,
+) -> list[dict[str, str]]:
+    id: int = entrada_id(nome_arquivo, tamanho)
 
-def executar(acao_escolhida: int, tamanho: int = 50) -> None:
     match acao_escolhida:
         case 1:
             ...
@@ -27,6 +41,9 @@ def executar(acao_escolhida: int, tamanho: int = 50) -> None:
             ...
         case _:
             informacao("ação não implementada", tamanho)
+
+    return tarefas
+
 
 def alterar_status(
     tarefas: list[dict[str, str]], id: int, tamanho: int = 50
