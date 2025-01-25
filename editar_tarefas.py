@@ -41,7 +41,7 @@ def executar(
 
     match acao_escolhida:
         case 1:
-            ...
+            tarefas = alterar_status(tarefas, id)
         case 2:
             ...
         case 3:
