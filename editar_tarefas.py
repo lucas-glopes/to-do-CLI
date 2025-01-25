@@ -28,6 +28,19 @@ def executar(acao_escolhida: int, tamanho: int = 50) -> None:
         case _:
             informacao("ação não implementada", tamanho)
 
+def alterar_status(
+    tarefas: list[dict[str, str]], id: int, tamanho: int = 50
+) -> list[dict[str, str]]:
+    if tarefas[id - 1]["Status"] == "pendente":
+        tarefas[id - 1].update({"Status": "concluída"})
+        informacao("tarefa marcada como -concluída-", tamanho)
+    else:
+        tarefas[id - 1].update({"Status": "pendente"})
+        informacao("tarefa marcada como -pendente-", tamanho)
+
+    return tarefas
+
+
 
 def main() -> None: ...
 
