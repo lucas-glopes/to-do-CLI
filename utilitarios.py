@@ -57,7 +57,9 @@ def criar_lista(
     """Cria/sobrescreve o arquivo de lista com o nome fornecido."""
     with open(nome_arquivo, "w") as arquivo_tarefas:
         CAMPOS: list[str] = ["Título", "Descrição", "Status"]
-        escritor_csv: object = csv.DictWriter(f=arquivo_tarefas, fieldnames=CAMPOS)
+        escritor_csv: object = csv.DictWriter(
+            f=arquivo_tarefas, fieldnames=CAMPOS, delimiter=";"
+        )
         escritor_csv.writeheader()
         arquivo_tarefas.close()
 
