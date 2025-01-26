@@ -36,7 +36,7 @@ def editar(
 
     criar_lista(nome_arquivo, tamanho)
     registrar_tarefas(tarefas, nome_arquivo)
-    informacao("tarefas atualizadas", tamanho)
+    informacao("lista de tarefa atualizada", tamanho)
 
 
 def executar(
@@ -88,6 +88,7 @@ def editar_titulo(
         erro("o título da tarefa é obrigatório!")
 
     tarefas[id - 1].update({"Título": novo_titulo})
+    informacao("título atualizado", tamanho)
     return tarefas
 
 
@@ -97,12 +98,14 @@ def editar_descricao(
     """Altera o título da tarefa com o id selecionado."""
     nova_descricao: str = entrada("nova descrição:", tamanho)
     tarefas[id - 1].update({"Descrição": nova_descricao})
+    informacao("descrição atualizada", tamanho)
     return tarefas
 
 
 def excluir_tarefa(tarefas: list[dict[str, str]], id: int) -> list[dict[str, str]]:
     """Exclui a tarefa com o id selecionado."""
     tarefas.pop(id - 1)
+    informacao("tarefa excluída", tamanho=50)
     return tarefas
 
 
