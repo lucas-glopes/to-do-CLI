@@ -1,7 +1,9 @@
 from utilitarios import (
     cabecalho,
     criar_lista,
+    entrada,
     entrada_id,
+    erro,
     informacao,
     ler_tarefas,
     menu_acoes,
@@ -65,6 +67,20 @@ def alterar_status(
         tarefas[id - 1].update({"Status": "pendente"})
         informacao("tarefa marcada como -pendente-", tamanho)
 
+    return tarefas
+
+
+def editar_titulo(
+    tarefas: list[dict[str, str]], id: int, tamanho: int = 50
+) -> list[dict[str, str]]:
+    """Altera o título da tarefa com o id selecionado."""
+    while True:
+        novo_titulo: str = entrada("novo título:", tamanho)
+        if len(novo_titulo) > 0:
+            break
+        erro("o título da tarefa é obrigatório!")
+
+    tarefas[id - 1].update({"Título": novo_titulo})
     return tarefas
 
 
