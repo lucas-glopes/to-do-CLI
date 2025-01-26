@@ -45,11 +45,11 @@ def executar(
         case 1:
             tarefas = alterar_status(tarefas, id, tamanho)
         case 2:
-            ...
+            tarefas = editar_titulo(tarefas, id, tamanho)
         case 3:
-            ...
+            tarefas = editar_descricao(tarefas, id, tamanho)
         case 4:
-            ...
+            tarefas = excluir_tarefa(tarefas, id)
         case _:
             informacao("ação não implementada", tamanho)
 
