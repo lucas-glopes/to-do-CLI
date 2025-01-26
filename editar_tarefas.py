@@ -93,6 +93,11 @@ def editar_descricao(
     return tarefas
 
 
+def excluir_tarefa(tarefas: list[dict[str, str]], id: int) -> list[dict[str, str]]:
+    """Exclui a tarefa com o id selecionado."""
+    tarefas.pop(id - 1)
+    return tarefas
+
 
 def main() -> None: ...
 
