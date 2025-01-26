@@ -14,6 +14,12 @@ def visualizar(
     acoes: list[str], nome_arquivo: str = "tarefas.csv", tamanho: int = 50
 ) -> None:
     """Imprime a lista de tarefas e a de ações, recebe uma ação escolhida em loop e a executa."""
+    cabecalho(texto="lista de tarefas", tamanho=tamanho)
+
+    if not Path.exists(Path.cwd() / nome_arquivo):
+        informacao(mensagem="nenhuma tarefa encontrada", tamanho=tamanho)
+        return
+
     imprimir(nome_arquivo, tamanho)
     menu_acoes(acoes, tamanho)
 
@@ -30,13 +36,7 @@ def visualizar(
 
 
 def imprimir(nome_arquivo: str = "tarefas.csv", tamanho: int = 50) -> None:
-    """Imprime o cabeçalho e a lista de tarefas em formato personalizado."""
-    cabecalho(texto="lista de tarefas", tamanho=tamanho)
-
-    if not Path.exists(Path.cwd() / nome_arquivo):
-        informacao(mensagem="nenhuma tarefa encontrada", tamanho=tamanho)
-        return
-
+    """Imprime a lista de tarefas em formato personalizado."""
     tarefas: list[dict[str, str]] = ler_tarefas(nome_arquivo)
     print("=" * tamanho)
     for indice, tarefa in enumerate(tarefas):
