@@ -84,6 +84,15 @@ def editar_titulo(
     return tarefas
 
 
+def editar_descricao(
+    tarefas: list[dict[str, str]], id: int, tamanho: int = 50
+) -> list[dict[str, str]]:
+    """Altera o título da tarefa com o id selecionado."""
+    nova_descricao: str = entrada("nova descrição:", tamanho)
+    tarefas[id - 1].update({"Descrição": nova_descricao})
+    return tarefas
+
+
 
 def main() -> None: ...
 
