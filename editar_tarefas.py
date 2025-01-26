@@ -120,10 +120,3 @@ def excluir_tarefa(tarefas: list[dict[str, str]], id: int) -> list[dict[str, str
     tarefas.pop(id - 1)
     informacao("tarefa excluída", tamanho=50)
     return tarefas
-
-
-def main() -> None: ...
-
-
-if __name__ == "__main__":
-    main()
