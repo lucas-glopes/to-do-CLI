@@ -1,3 +1,5 @@
+from pathlib import Path
+
 from utilitarios import (
     cabecalho,
     criar_lista,
@@ -17,6 +19,11 @@ def editar(
 ) -> None:
     """Imprime a lista de ações, recebe uma ação escolhida em loop e a executa."""
     cabecalho("editar tarefas", tamanho)
+
+    if not Path.exists(Path.cwd() / nome_arquivo):
+        informacao("nenhuma tarefa encontrada", tamanho)
+        return
+
     menu_acoes(acoes, tamanho)
     tarefas: list[dict[str, str]] = ler_tarefas(nome_arquivo)
 
