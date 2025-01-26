@@ -1,4 +1,5 @@
 import adicionar_tarefas
+import editar_tarefas
 import menu
 import visualizar_lista
 from utilitarios import informacao
@@ -15,7 +16,14 @@ def executar(
             ACOES: list[str] = ["ver detalhes", "voltar ao menu"]
             visualizar_lista.visualizar(ACOES, nome_arquivo, tamanho)
         case 3:
-            ...
+            ACOES = [
+                "alterar status",
+                "editar título",
+                "editar descrição",
+                "excluir tarefa",
+                "voltar ao menu",
+            ]
+            editar_tarefas.editar(ACOES, nome_arquivo, tamanho)
         case _:
             informacao("opção não implementada", tamanho)
 
