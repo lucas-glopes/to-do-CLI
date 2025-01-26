@@ -20,6 +20,11 @@ def visualizar(
         informacao(mensagem="nenhuma tarefa encontrada", tamanho=tamanho)
         return
 
+    if len(ler_tarefas(nome_arquivo)) == 0:
+        Path.unlink(Path.cwd() / nome_arquivo)
+        informacao(mensagem="nenhuma tarefa encontrada", tamanho=tamanho)
+        return
+
     imprimir(nome_arquivo, tamanho)
     menu_acoes(acoes, tamanho)
 

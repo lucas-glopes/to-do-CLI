@@ -24,18 +24,31 @@ def editar(
         informacao("nenhuma tarefa encontrada", tamanho)
         return
 
+    if len(ler_tarefas(nome_arquivo)) == 0:
+        Path.unlink(Path.cwd() / nome_arquivo)
+        informacao(mensagem="nenhuma tarefa encontrada", tamanho=tamanho)
+        return
+
     menu_acoes(acoes, tamanho)
     tarefas: list[dict[str, str]] = ler_tarefas(nome_arquivo)
 
     while True:
+        if len(tarefas) == 0:
+            informacao("não há mais tarefas", tamanho)
+            Path.unlink(Path.cwd() / nome_arquivo)
+            break
+
         acao_escolhida: int = selecionar_acao(acoes, tamanho)
+
         if acao_escolhida != len(acoes):
             tarefas = executar(tarefas, acao_escolhida, nome_arquivo, tamanho)
         else:
             break
 
-    criar_lista(nome_arquivo, tamanho)
-    registrar_tarefas(tarefas, nome_arquivo)
+    if len(tarefas) > 0:
+        criar_lista(nome_arquivo, tamanho)
+        registrar_tarefas(tarefas, nome_arquivo)
+
     informacao("lista de tarefa atualizada", tamanho)
 
 
